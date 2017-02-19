@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Super Sprinter 3000 - {{header}} </title>
+</head>
+<body background="../static/bg.jpg">
+<h1> User Story Manager - Add New Story{{header}}</h1>
+ <form action="/story/{{story.id}}" method="POST">
+        <label for="story_title">Story Title</label><br>
+        <textarea name='story_title' id="story_title" rows="1" cols="80" required>{{story.story_title}}</textarea><br>
+		<label for="user_story">User Story</label><br>
+		<textarea name='user_story' id="user_story" rows="6" cols="80" required>{{story.user_story}}</textarea><br>
+        <label for="story_title">Acceptance Criteria</label><br>
+        <textarea name="criteria" id="criteria" rows="6" cols="80" required>{{story.criteria}}</textarea><br>
+        <label for="business_value">Business Value</label><br>
+        <input type="number" name="business_value" id="business_value" min="100" max="1500" step="100" size="10"
+               value="{{story.business_value}}"><br>
+        <label for="estimation">Estimation (h)</label><br>
+        <input type="number" name="estimation" id="estimation" min="0.5" max="40" step="0.5" size="10"
+               value="{{story.estimation}}"><br>
+        <label for="status">Status</label><br>
+        <select name="status" id="status" required>"{{story.status}}">
+                            <option value="planning">Planning</option>
+                            <option value="to_do">To Do</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="review">Review</option>
+                            <option value="done">Done</option>
+        </select><br>
+        <p><button type='submit'>{{button}}</button></p>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Super Sprinter 3000</title>
+</head>
+<body background="../static/bg.jpg">
+	<h1>User Story Manager</h1>
+    <form action="{{ url_for('create_new') }}">
+		<input type="submit" value="Add new user story" />
+	</form>
+	<br>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Story title</th>
+				<th>User story</th>
+				<th>Acceptance criteria</th>
+				<th>Business value</th>
+				<th>Estimation</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		{% for story in stories %}
+		<tbody>
+			<tr>
+				<td>{{story.id}}</td>
+				<td>{{story.story_title}}</td>
+				<td>{{story.user_story}}</td>
+				<td>{{story.criteria}}</td>
+				<td>{{story.business_value}}</td>
+				<td>{{story.estimation}}</td>
+				<td>{{story.status}}</td>
+				<td>
+					<form action="/story/{{story.id}}">
+						<input type="image" src="../static/pen.png" width="30" alt="Edit">
+					</form>
+				</td>
+				<td>
+					<form action="/delete/{{story.id}}" method=post>
+						<input type="image" src="../static/bin.png" width="30" alt="Delete">
+					</form>
+				</td>
+			</tr>
+		</tbody>
+		{% endfor %}
+	</table>
+</body>
+</html>
